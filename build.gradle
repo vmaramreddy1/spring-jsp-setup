@@ -1,0 +1,49 @@
+buildscript{
+    ext{
+        springBootVersion = '2.0.0.M7'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.bcg.pt'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+
+dependencies {
+    compile(
+            ['org.springframework:spring-web:+'],
+            ['org.springframework:spring-webmvc:+'],
+            //['org.springframework.security:spring-security-web:+'],
+            //['org.springframework.security:spring-security-config:+'],
+            ['javax.servlet.jsp:javax.servlet.jsp-api:+'],
+            ['javax.servlet.jsp.jstl:jstl-api:+'],
+            ['javax.servlet:javax.servlet-api:+'],
+            ['javax.servlet:jstl:+'],
+            ['taglibs:standard:+'],
+            ['org.apache.tomcat.embed:tomcat-embed-jasper:+'],
+            //['com.microsoft.sqlserver:mssql-jdbc:+'],
+            ['org.springframework.boot:spring-boot-starter-web:+'],
+            ['org.springframework:spring-context:+']
+
+    )
+}
